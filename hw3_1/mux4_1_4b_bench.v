@@ -19,7 +19,7 @@ module mux4_1_4b_bench;
     clkrst my_clkrst( .clk(Clk), .rst(rst), .err(err));
 
     // Module instantiation :
-    quadmux4_1 DUT (.InA(InA), .InB(InB),.InC(InC),.InD(InD), .S(S), .Out(Out));
+    mux4_1_4b DUT (.InA(InA), .InB(InB),.InC(InC),.InD(InD), .S(S), .Out(Out));
 
     // Input drivers :
     //  Check every combination of S

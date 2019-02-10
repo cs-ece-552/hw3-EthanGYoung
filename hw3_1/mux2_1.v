@@ -10,5 +10,14 @@ module mux2_1(InA, InB, S, Out);
     output  Out;
 
     // YOUR CODE HERE
+    wire s0,a0,b0;
 
-endmodule
+    not1
+	first(s0, S);
+    nand2
+
+        second(a0, s0, InA),
+        third(b0, S, InB),
+        fourth(Out, a0, b0);
+
+endmodule  // mux2
