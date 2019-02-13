@@ -16,7 +16,7 @@ module rca_16b_bench;
     initial begin
         A = 17'b0_0000_0000_0000_0000;
 	    B = 17'b0_0000_0000_0000_0000;
-	    #3200 $finish;
+	    #3200 $stop;
     end
    
     always@(posedge Clk) begin
@@ -26,7 +26,7 @@ module rca_16b_bench;
    
     always@(negedge Clk) begin
 	    Sumcalc = A+B;
-	    $display("A : %x, B%x, Sum %x", A, B, SUM);
+	    $monitor("A : %x, B%x, Sum %x", A, B, SUM);
 	
 	    if (Sumcalc[15:0] !== SUM) $display ("ERRORCHECK Sum error");
 	    if (Sumcalc[16] !== CO) $display ("ERRORCHECK CO error");

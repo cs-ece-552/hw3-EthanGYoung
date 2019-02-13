@@ -1,6 +1,7 @@
 module mux4_1_4b_bench;
     // No inputs and outputs : testbenchs just a wrapper.
 
+    // registers are inputs, wires are outputs)
     // reg/wire definitions, we'll use these to drive our inputs and capture our outputs
     reg [3:0] InA;
     reg [3:0] InB;
@@ -28,11 +29,11 @@ module mux4_1_4b_bench;
     // when simulation starts
     initial begin
 	    // Lets initialize all inputs (We dont want any 'Z's)
-	    InA = 4'b0001;
+	    InA = 4'b0011;
 	    InB = 4'b1000;
 	    InC = 4'b1010;
 	    InD = 4'b0101;
-        S = 2'b00;
+            S = 2'b00;
 	    // #10 means wait for a delay of 10 ticks.
 	    // By doing this we hold every singal for some time, which allows
 	    // for the combinational logical delay and for the output to be computed
@@ -43,11 +44,11 @@ module mux4_1_4b_bench;
 
     //Random values 
     always@(posedge Clk) begin
-        InA = $random;
+	    InA = $random;
 	    InB = $random;
 	    InC = $random;
 	    InD = $random;
-        S = $random;
+            S = $random;
     end
 
     // Output monitors
