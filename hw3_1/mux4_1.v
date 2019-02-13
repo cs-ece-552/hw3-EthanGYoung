@@ -10,9 +10,9 @@ module mux4_1(InA, InB, InC, InD, S, Out);
     output       Out;
     wire	 InTop,InBot;
     
-    mux2_1 mux_1(InA, InC, S[1], InBot);
-    mux2_1 mux_2(InB, InD, S[1], InTop);
+    mux2_1 mux_1(.InA(InA), .InB(InC), .S(S[1]), .Out(InBot));
+    mux2_1 mux_2(.InA(InB), .InB(InD), .S(S[1]), .Out(InTop));
 
-    mux2_1 mux_3(InBot, InTop, S[0], Out);
+    mux2_1 mux_3(.InA(InBot), .InB(InTop), .S(S[0]), .Out(Out));
 
 endmodule
